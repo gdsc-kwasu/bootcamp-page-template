@@ -1,6 +1,7 @@
 const gulp = require('gulp'),
     sass = require('gulp-sass'),
     imagemin = require('gulp-imagemin'),
+    cssnano = require('gulp-cssnano')
     browserSync = require('browser-sync').create()
 
 // HTML task - simply copy to public folder for now.
@@ -17,6 +18,15 @@ function cssTask(next) {
         .pipe(sass())
         .pipe(gulp.dest('public/css'))
         .pipe(browserSync.stream())
+
+    next()
+}
+
+function cssTaskProd(next) {
+    gulp.src('src/scss/app.scss')
+        .pipe(sass())
+        .pipe(cssnano())
+        .pipe(gulp.dest('public/css'))
 
     next()
 }
@@ -59,5 +69,6 @@ function liveReload(next) {
 
 // send out our public tasks.
 exports.dev = gulp.series(htmlTask, cssTask, imagesTask)
-exports.watch = watch
+exports.build = gulp.series(htmlTask, cssTaskProd, imagesTask)
 exports.default = gulp.series(htmlTask, cssTask, imagesTask, liveReload, watch)
+exports.watch = watch
