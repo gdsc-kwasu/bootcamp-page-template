@@ -1,0 +1,18 @@
+$browser-context:   16 !default;
+
+@function em($pixels, $context: $browser-context) {
+    @return #{$pixels/$context}em;
+}
+
+/*
+* Shadow functions
+*/
+@mixin shadow1() {
+    box-shadow: 0 7px 64px rgba(0, 0, 0, 0.07);
+}
+@mixin shadow2() {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
+}
+@mixin shadow3() {
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07);
+}

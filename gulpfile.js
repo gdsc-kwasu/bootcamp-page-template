@@ -1,5 +1,6 @@
 const gulp = require('gulp'),
     sass = require('gulp-sass'),
+    imagemin = require('gulp-imagemin'),
     browserSync = require('browser-sync').create()
 
 // HTML task - simply copy to public folder for now.
@@ -10,7 +11,7 @@ function htmlTask(next) {
     next()    
 }
 
-// CSS/SASS Tasks
+// CSS/SASS Task
 function cssTask(next) {
     gulp.src('src/scss/app.scss')
         .pipe(sass())
@@ -18,6 +19,14 @@ function cssTask(next) {
         .pipe(browserSync.stream())
 
     next()
+}
+
+// Images Task (Assets)
+function imagesTask(next) {
+    gulp.src('src/images/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('public/images'))
+    next();
 }
 
 // Experimenting Live-reload HOC (Didn't work)
@@ -32,7 +41,7 @@ function doLiveReload(callback = () => {}) {
 
 // File watcher task.
 function watch(next) {
-    gulp.watch('src/scss/**/*.scss', cssTask).on('change', browserSync.reload)
+    gulp.watch('src/scss/**/*.scss', {delay: 2500}, cssTask).on('change', browserSync.reload)
     gulp.watch('src/**/*.html', htmlTask).on('change', browserSync.reload)
 
     next()
@@ -49,6 +58,6 @@ function liveReload(next) {
 }
 
 // send out our public tasks.
-exports.dev = gulp.series(htmlTask, cssTask)
+exports.dev = gulp.series(htmlTask, cssTask, imagesTask)
 exports.watch = watch
-exports.default = gulp.series(htmlTask, cssTask, liveReload, watch)
+exports.default = gulp.series(htmlTask, cssTask, imagesTask, liveReload, watch)

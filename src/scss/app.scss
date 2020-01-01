@@ -1,6 +1,95 @@
 @import "variable";
+@import "functions";
+
+@import "section";
+
+@import "components/button";
+@import "components/header";
+@import "components/footer";
 
 body {
-    background-color: $primary;
-    color: #fff;
+    font-family: $body-font-family;
+    color: $body-color;
+    background-color: $body-bg;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font-family;
+    color: $heading-color;
+}
+.logo {
+    width: 250px;
+    height: 30px;
+}
+
+@media screen and (max-width: 578px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .logo {
+        width: 150px;
+    }
+}
+.home-bg {
+    background: url('/images/bg-image.png') no-repeat;
+    background-size: cover;
+}
+
+.text-styled {
+    padding: 0 10px;
+    color: $primary;
+    background-color: rgba($primary, .3);
+    line-height: 1.3em;
+}
+
+.intro-text {
+    font-size: 1.2em;
+}
+
+.tech-icon {
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.instructor {
+    padding: 0 0 20px 0;
+   @include shadow1;
+}
+
+.instructor__img {
+    height: 200px;
+    width: 100%;
+    display: block;
+}
+
+.instructor__name {
+    font-weight: bolder;
+    color: $primary;
+    margin: 10px 0 0 0;
+}
+
+.instructor__bio {
+    text-align: justify;
+    font-size: .8em;
+}
+
+.social-link {
+    height: 32px;
+    width: 32px;
+    padding: 3px 0 0 8px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 10px;
+    color: lighten($body-color, 5%);
+    border: 1px solid rgba($primary, .7);
+    background-color: transparent;
+    transition: background-color .5s linear;
+    &:hover {
+        background-color: rgba($primary, .5);
+        color: $white;
+        transition: background-color .6s ease-in-out;
+    }
 }

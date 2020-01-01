@@ -1,0 +1,15 @@
+.footer {
+    margin: 80px auto 20px auto;
+}
+
+.footer-icon {
+    font-size: 1.4em;
+    color: $body-color;
+    margin-right: 10px;
+    transition: color .4s linear;
+    &:hover {
+        color: $primary;
+        text-decoration: none;
+        transition: color .5s linear;
+    }
+}

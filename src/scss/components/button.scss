@@ -1,0 +1,38 @@
+.button {
+    padding: em(15) em(20);
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    transition: top .4s linear;
+    @include shadow3;
+
+    &:hover {
+        top: -1px;
+        transition: top .4s linear;
+    }
+}
+
+.button-primary {
+    background-color: $primary;
+    color: $white;
+    transition: background-color .4s linear, top .4s linear;
+
+    &:hover {
+        background-color: desaturate($primary, 15%);
+        top: -1px;
+        transition: background-color .5s ease-in-out;
+    }
+}
+
+.button-white {
+    background-color: $white;
+    color: $primary;
+    transition: background-color .4s linear;
+    box-shadow: 3px 3px 4px darken($white, 5%);
+
+    &:hover {
+        background-color: desaturate($white, 15%);
+        transition: background-color .5s ease-in-out;
+    }
+}
