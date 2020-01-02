@@ -26,13 +26,23 @@ h1, h2, h3, h4, h5, h6 {
     body {
         font-size: 14px;
     }
-    
     .logo {
-        width: 150px;
+        width: 135px;
+    }
+    .tech-icon img {
+        height: 30px;
+        margin: 0 5px;
+    }
+    .social-link i {
+        padding-top: 5px;
+    }
+    .technology-list img {
+        height: 30px;
+        width: 30px;
     }
 }
 .home-bg {
-    background: url('/images/bg-image.png') no-repeat;
+    background: url('/images/home-bg.jpg') no-repeat;
     background-size: cover;
 }
 
