@@ -1,8 +1,9 @@
 @import "variable";
 @import "functions";
 
-@import "section";
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
+@import "section";
 @import "components/button";
 @import "components/header";
 @import "components/footer";
@@ -23,9 +24,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media screen and (max-width: 578px) {
-    body {
-        font-size: 14px;
-    }
     .logo {
         width: 135px;
     }
@@ -42,6 +40,18 @@ h1, h2, h3, h4, h5, h6 {
     }
     .home-bg div {
         width: 300px;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 578px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 577px) {
+    body {
+        font-size: 12px;
     }
 }
 .home-bg {
@@ -97,7 +107,6 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50%;
     margin-right: 10px;
     color: lighten($body-color, 5%);
-    border: 1px solid rgba($primary, .7);
     background-color: transparent;
     transition: background-color .5s linear;
     &:hover {
