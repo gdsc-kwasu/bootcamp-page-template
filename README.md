@@ -20,3 +20,6 @@ to ```npm run build``` and the public folder to **public** (where the files will
 
 ## Contribution
 Yes, contribution is highly welcome. Open a PR, and we will thank you.
+
+## Bootcamp Outline
+You can find the outline [here](./Outline.md)
